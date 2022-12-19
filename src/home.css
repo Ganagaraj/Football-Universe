@@ -1,21 +1,3 @@
 #grid {
     background-color: white;
 }
-
-.container {
-    font-family: arial;
-    font-size: 24px;
-    margin: 25px;
-    width: 350px;
-    height: 200px;
-    outline: dashed 1px black;
-    /* Center child horizontally*/
-    display: flex;
-    justify-content: center;
-}
-
-.row {
-    width: 50px;
-    height: 50px;
-    background-color: red;
-}
