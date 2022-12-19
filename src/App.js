@@ -1,10 +1,10 @@
 import './App.css';
-
+import Home from './home'; 
 function App() {
   return (
-    <div>
-      <h1>Ganagaraj loves football</h1>
-    </div>
+    <>
+      <Home/>
+    </>
   );
 }
 
