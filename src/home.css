@@ -27,5 +27,13 @@ span {
     background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
     color: white;
     bottom: 17px;
-    left: 20px;
+    left: 17px;
+    width: 90%;
+}
+
+a:hover~.text-block {
+    width: 105% !important;
+    left: -10px;
+    bottom: 2px;
+    position: absolute;
 }

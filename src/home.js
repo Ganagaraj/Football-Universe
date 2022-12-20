@@ -46,6 +46,9 @@ function Header(){
 }
 
 
+var nextpage =  ()=>{
+  console.log("hiii")
+}
 function Grid(){
     const [Data,setData] = useState([])
     useEffect(()=>{
@@ -79,28 +82,36 @@ function Grid(){
         return (
         <div className="row justify-content-center" key={count}>
         <div className="col-auto p-3 ">
-            <img src= {Data[++i].thumbnail} alt="thumbnail" width={300} height={145}/>
+          <a href={Data[++i].matchviewUrl}>
+            <img src= {Data[i].thumbnail} alt="thumbnail" width={300} height={145}  onClick= {nextpage} />  
+            </a>
             <div className="text-block">
                 <h5>{Data[i].title}</h5>
                 <p>{Data[i].competition}</p>
            </div>
         </div>
         <div className="col-auto p-3">
-            <img src= {Data[++i].thumbnail} alt="thumbnail" width={300} height={145}/>
+        <a href={Data[++i].matchviewUrl}>
+            <img src= {Data[i].thumbnail} alt="thumbnail" width={300} height={145}  onClick= {nextpage} />  
+            </a>
             <div className="text-block">
                 <h5>{Data[i].title}</h5>
                 <p>{Data[i].competition}</p>
            </div>
         </div>
         <div className="col-auto p-3">
-            <img src= {Data[++i].thumbnail} alt="thumbnail" width={300} height={145}/>
+        <a href={Data[++i].matchviewUrl}>
+            <img src= {Data[i].thumbnail} alt="thumbnail" width={300} height={145}  onClick= {nextpage} />  
+            </a>
             <div className="text-block">
                 <h5>{Data[i].title}</h5>
                 <p>{Data[i].competition}</p>
            </div>
         </div>
         <div className="col-auto p-3">
-            <img src= {Data[++i].thumbnail} alt="thumbnail" width={300} height={145}/>
+           <a href={Data[++i].matchviewUrl}>
+            <img src= {Data[i].thumbnail} alt="thumbnail" width={300} height={145}  onClick= {nextpage} />  
+            </a>
             <div className="text-block">
                 <h5>{Data[i].title}</h5>
                 <p>{Data[i].competition}</p>
