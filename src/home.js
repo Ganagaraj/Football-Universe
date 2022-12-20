@@ -66,23 +66,45 @@ function Grid(){
         }
         
     };
-    let i= -1;
+    var i =-1;
     console.log(Data)
     return (
-<div className='container' id='grid'>
+<div className='container-fuild justify-content-center' id='grid'>
+<span>Recent Matches</span>
    {
    
-        Data.slice(0,30).map((dat,count)=>{
+       
+
+        Data.slice(0,20).map((dat,count)=>{
         return (
-        <div className="row" key={count}>
-        <div className="col">
-            <img src= {Data[++i].thumbnail} alt="thumbnail" width={280} height={130}/>
+        <div className="row justify-content-center" key={count}>
+        <div className="col-auto p-3 ">
+            <img src= {Data[++i].thumbnail} alt="thumbnail" width={300} height={145}/>
+            <div className="text-block">
+                <h5>{Data[i].title}</h5>
+                <p>{Data[i].competition}</p>
+           </div>
         </div>
-        <div className="col">
-            <img src= {Data[++i].thumbnail} alt="thumbnail" width={280} height={130}/>
+        <div className="col-auto p-3">
+            <img src= {Data[++i].thumbnail} alt="thumbnail" width={300} height={145}/>
+            <div className="text-block">
+                <h5>{Data[i].title}</h5>
+                <p>{Data[i].competition}</p>
+           </div>
         </div>
-        <div className="col">
-            <img src= {Data[++i].thumbnail} alt="thumbnail" width={280} height={130}/>
+        <div className="col-auto p-3">
+            <img src= {Data[++i].thumbnail} alt="thumbnail" width={300} height={145}/>
+            <div className="text-block">
+                <h5>{Data[i].title}</h5>
+                <p>{Data[i].competition}</p>
+           </div>
+        </div>
+        <div className="col-auto p-3">
+            <img src= {Data[++i].thumbnail} alt="thumbnail" width={300} height={145}/>
+            <div className="text-block">
+                <h5>{Data[i].title}</h5>
+                <p>{Data[i].competition}</p>
+           </div>
         </div>
         
         </div>
