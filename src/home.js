@@ -3,6 +3,7 @@ import axios from 'axios'
 import './home.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min'
+import {Link} from 'react-router-dom'
 const logo = require('./Youtube-Logo-JPG.jpg')
 
 axios.defaults.withCredentials = false
@@ -52,22 +53,22 @@ function Header(props){
             
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-
-                <a className="nav-link active" aria-current="page" href='./link1.jsx'>{keys[0]}</a>
+                
+                <Link className="nav-link active" aria-current="page" to='link1'>{keys[0]}</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link active" href="old">{keys[1]}</a>
+              <Link className="nav-link active" aria-current="page" to='link2'>{keys[1]}</Link>
               </li>
 
               <li className="nav-item">
-                <a className="nav-link active" href="old">{keys[2]}</a>
+              <Link className="nav-link active" aria-current="page" to='link3'>{keys[2]}</Link>
               </li>
               
               <li className="nav-item">
-                <a className="nav-link  active" href="old" aria-disabled="true">{keys[3]}</a>
+              <Link className="nav-link active" aria-current="page" to='link4'>{keys[3]}</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link  active" href="old" aria-disabled="true">Others</a>
+              <Link className="nav-link active" aria-current="page" to="others">Others</Link>
               </li>
             </ul>
          

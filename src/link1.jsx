@@ -1,6 +1,8 @@
-import {useEffect,useState,axios} from 'axios'
-import {keys,res} from 'home.js'
-function Gimme(props){
+import {useLayoutEffect,useState} from 'react'
+import {keys,res} from './home'
+import axios from 'axios'
+
+function Gimme(props){ 
      let indi = props.indi;
      let Data = props.Data;
      let Total = props.total;
@@ -19,45 +21,50 @@ function Gimme(props){
 }
 function Maker(props){
     let Data = props.Data;
+    console.log(Data.length)
     let total = res[keys[0]];
     let indi=-1;
+    let fData = Data.filter((val)=>{
+        return keys[0] === val.competition;
+    })
+    console.log(fData)
     for(let i=0;i<total;i++){
        
-        <div className="row justify-content-center" key={i} on>
+        <div className="row justify-content-center" key={i} on>  
         <div className="col-auto p-3 ">
-          <a href={Data[++indi].matchviewUrl}>
-            <img src= {Data[indi].thumbnail} alt="thumbnail" width={300} height={145}   />  
+          <a href={fData[++indi].matchviewUrl}>
+            <img src= {fData[indi].thumbnail} alt="thumbnail" width={300} height={145}   />  
             </a>
             <div className="text-block">
-                <p>{Data[indi].title}</p>
-                <p>{Data[indi].competition}</p>
+                <p>{fData[indi].title}</p>
+                <p>{fData[indi].competition}</p>
            </div>
         </div>
         <div className="col-auto p-3">
-        <a href={Data[++indi].matchviewUrl}>
-            <img src= {Data[indi].thumbnail} alt="thumbnail" width={300} height={145}   />  
+        <a href={fData[++indi].matchviewUrl}>
+            <img src= {fData[indi].thumbnail} alt="thumbnail" width={300} height={145}   />  
             </a>
             <div className="text-block">
-                <p>{Data[indi].title}</p>
-                <p>{Data[indi].competition}</p>
+                <p>{fData[indi].title}</p>
+                <p>{fData[indi].competition}</p>
            </div>
         </div>
         <div className="col-auto p-3">
-        <a href={Data[++indi].matchviewUrl}>
-            <img src= {Data[indi].thumbnail} alt="thumbnail" width={300} height={145}  />  
+        <a href={fData[++indi].matchviewUrl}>
+            <img src= {fData[indi].thumbnail} alt="thumbnail" width={300} height={145}  />  
             </a>
             <div className="text-block">
-                <p>{Data[indi].title}</p>
-                <p>{Data[indi].competition}</p>
+                <p>{fData[indi].title}</p>
+                <p>{fData[indi].competition}</p>
            </div>
         </div>
         <div className="col-auto p-3">
-           <a href={Data[++indi].matchviewUrl}>
-            <img src= {Data[indi].thumbnail} alt="thumbnail" width={300} height={145}   />  
+           <a href={fData[++indi].matchviewUrl}>
+            <img src= {fData[indi].thumbnail} alt="thumbnail" width={300} height={145}   />  
             </a>
             <div className="text-block">
-                <p>{Data[indi].title}</p>
-                <p>{Data[indi].competition}</p>
+                <p>{fData[indi].title}</p>
+                <p>{fData[indi].competition}</p>
            </div>
         </div>
         
@@ -67,14 +74,15 @@ function Maker(props){
         }
     }
     <div className="row justify-content-center"  on>
-       <Gimme indi={indi} Data={Data} Total={total}/>
+       <Gimme indi={indi} Data={fData} Total={total}/>
         </div>
     
 }
 
 function Grid(){
     const [Data,setData] = useState([])
-    useEffect(()=>{
+    useLayoutEffect(()=>{
+        console.log("hii bro")
         requestAPI();
          // eslint-disable-next-line
     },[])
@@ -101,7 +109,9 @@ function Grid(){
     return (
 <div className='container-fuild justify-content-center' id='grid'>
 <span>{keys[0]} Matches</span>
+
   <Maker Data={Data}/>
+  
 </div>
     )
 }
