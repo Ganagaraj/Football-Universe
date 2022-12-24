@@ -27,16 +27,16 @@ function Gimme(props){
 }   
 function Maker(props){
     let Data = props.Data;                                              
-    let total = res[keys[0]];
+    let total = res[keys[2]];
     let indi=-1;
     let fData = Data.filter((val)=>{
-        return keys[0] === val.competition;
+        return keys[2] === val.competition;
     })
     console.log(fData)
     console.log(total)
     let result = []
     for(let i=0;i<total;i++){
-        
+        console.log("ohhh godd")
     result.push(
     <div className="row justify-content-center" key={i} >  
         <div className="col-auto p-3 ">
@@ -77,7 +77,7 @@ function Maker(props){
         </div>
         
         </div> )
-         if((total-indi)<4){
+         if((total-indi)<=4){
             console.log("break")
             break;
         }
@@ -119,7 +119,7 @@ function Grid(){
    if(isDone){
     return (
 <div className='container-fuild justify-content-center' id='grid'>
-<span>{keys[0]} Matches</span>
+<span>{keys[2]} Matches</span>
 
   <Maker Data={Data}/>
 
@@ -130,13 +130,12 @@ function Grid(){
 }
 
 
-function Link1(){
+function Link3(){
     return(
     <>
-     
      <Grid/>
      </>
     )
 }
 
-export default Link1;
+export default Link3;
