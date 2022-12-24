@@ -77,14 +77,14 @@ function Maker(props){
         </div>
         
         </div> )
-         if((total-indi)<4){
+         if((total-indi)<=4){
             console.log("break")
             break;
         }
     }
        result.push(
         <div className="row justify-content-center">
-            <Gimme indi ={indi} Data={Data} total ={total}/>
+            <Gimme indi ={indi} Data={fData} total ={total}/>
         </div>)
 
   return result;
