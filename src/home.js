@@ -9,6 +9,7 @@ const logo = require('./Youtube-Logo-JPG.jpg')
 axios.defaults.withCredentials = false
 export let keys,res;
 let items;
+let isLogin = false;
 function dict(data){
   let dict = {};
    data.map((dat) => {
@@ -76,6 +77,8 @@ function Header(props){
               <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
               <button className="btn btn-outline-success" type="submit">Search</button>
             </form>
+
+            <button className='btn btn-primary ' id='login-btn' onClick={loginPopup()}>Login</button>
        
           </div>
         </div>
@@ -86,8 +89,17 @@ function Header(props){
 }
 
 
-var nextpage =  ()=>{
-  console.log("hiii")
+var loginPopup = ()=>{
+  
+     if(isLogin){
+       return( <h1>hiiiiiii</h1> )
+     }
+     else{
+        return(
+         
+   )
+
+     }
 }
 function Grid(){
     const [Data,setData] = useState([])
@@ -123,7 +135,7 @@ function Grid(){
         <div className="row justify-content-center" key={count} on>
         <div className="col-auto p-3 ">
           <a href={Data[++i].matchviewUrl}>
-            <img src= {Data[i].thumbnail} alt="thumbnail" width={300} height={145}  onClick= {nextpage} />  
+            <img src= {Data[i].thumbnail} alt="thumbnail" width={300} height={145}  />  
             </a>
             <div className="text-block">
                 <p>{Data[i].title}</p>
@@ -132,7 +144,7 @@ function Grid(){
         </div>
         <div className="col-auto p-3">
         <a href={Data[++i].matchviewUrl}>
-            <img src= {Data[i].thumbnail} alt="thumbnail" width={300} height={145}  onClick= {nextpage} />  
+            <img src= {Data[i].thumbnail} alt="thumbnail" width={300} height={145}  />  
             </a>
             <div className="text-block">
                 <p>{Data[i].title}</p>
@@ -141,7 +153,7 @@ function Grid(){
         </div>
         <div className="col-auto p-3">
         <a href={Data[++i].matchviewUrl}>
-            <img src= {Data[i].thumbnail} alt="thumbnail" width={300} height={145}  onClick= {nextpage} />  
+            <img src= {Data[i].thumbnail} alt="thumbnail" width={300} height={145}  />  
             </a>
             <div className="text-block">
                 <p>{Data[i].title}</p>
@@ -150,7 +162,7 @@ function Grid(){
         </div>
         <div className="col-auto p-3">
            <a href={Data[++i].matchviewUrl}>
-            <img src= {Data[i].thumbnail} alt="thumbnail" width={300} height={145}  onClick= {nextpage} />  
+            <img src= {Data[i].thumbnail} alt="thumbnail" width={300} height={145}  />  
             </a>
             <div className="text-block">
                 <p>{Data[i].title}</p>
