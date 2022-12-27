@@ -1,6 +1,7 @@
 import {React,useState,useEffect} from 'react'
 import axios from 'axios'
 import './home.css'
+import './LoginPopUp.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min'
 import {Link} from 'react-router-dom'
@@ -9,7 +10,7 @@ const logo = require('./Youtube-Logo-JPG.jpg')
 axios.defaults.withCredentials = false
 export let keys,res;
 let items;
-let isLogin = false;
+//let isLogin = false;
 function dict(data){
   let dict = {};
    data.map((dat) => {
@@ -78,7 +79,7 @@ function Header(props){
               <button className="btn btn-outline-success" type="submit">Search</button>
             </form>
 
-            <button className='btn btn-primary ' id='login-btn' onClick={loginPopup()}>Login</button>
+            <Login/>
        
           </div>
         </div>
@@ -89,17 +90,38 @@ function Header(props){
 }
 
 
-var loginPopup = ()=>{
-  
-     if(isLogin){
-       return( <h1>hiiiiiii</h1> )
-     }
-     else{
-        return(
-         
-   )
-
-     }
+var Login = ()=>{
+   console.log("hello")
+    return(
+      <>
+      <button className='btn btn-primary ' id='login-btn'  data-bs-toggle="modal" data-bs-target="#ModalForm">Login</button>
+     
+<div class="modal fade" id="ModalForm" tabindex="-1" aria-labelledby="ModalFormLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="myform bg-dark">
+                <h1 class="text-center">Login Form</h1>
+                <form>
+                    <div class="mb-3 mt-4">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1"/>
+                    </div>
+                    <button type="submit" class="btn btn-light mt-3">LOGIN</button>
+                    <p id='ps'>Not a member? <a href="signup">Signup now</a></p>
+                </form>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+</>
+    )
 }
 function Grid(){
     const [Data,setData] = useState([])
