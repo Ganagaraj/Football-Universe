@@ -5,6 +5,7 @@ import {useForm} from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup'
 import './SignUp.css'
+import axios from 'axios';
 
 const schema = yup.object().shape(
     {
@@ -38,6 +39,11 @@ function Cooking(){
 
                 <form class="mx-1 mx-md-4" onSubmit={handleSubmit((data)=>{
                     console.log(data)
+                    axios.post('http://localhost:8000/signup',data).then((res)=>{
+                        console.log(res)
+                    }).catch((err)=>{
+                        console.log(err)
+                    })
                 })}>
 
                   <div class="d-flex flex-row align-items-center mb-4">
@@ -45,27 +51,29 @@ function Cooking(){
                     <div class="form-outline flex-fill mb-0">
                       <input type="text" name="name" id="form3Example1c" class="form-control" {...register('name')}/>
                       <label class="form-label" for="form3Example1c">Your Name</label>
+                      <p className='password'>{errors.name?.message}</p>
                     </div>
                   </div>
-                  <p className='password'>{errors.name?.message}</p>
+                  
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                       <input type="email" name="email" id="form3Example3c" class="form-control" {...register('email')}/>
                       <label class="form-label" for="form3Example3c">Your Email</label>
+                      <p className='password'>{errors.email?.message}</p>
                     </div>
                   </div>
-                  <p className='password'>{errors.email?.message}</p>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                       <input type="password" name="password" id="form3Example4c" class="form-control" {...register('password')}/>
                       <label class="form-label" for="form3Example4c">Password</label>
+                      <p className='password'>{errors.password?.message}</p>
                     </div>
                   </div>
-                  <p className='password'>{errors.password?.message}</p>
+                  
 
 
                   <div class="d-flex flex-row align-items-center mb-4">
@@ -73,17 +81,11 @@ function Cooking(){
                     <div class="form-outline flex-fill mb-0">
                       <input type="password" name="confirmpassword"id="form3Example4cd" class="form-control" {...register('confirmpassword')}/>
                       <label class="form-label" for="form3Example4cd">Repeat your password</label>
+                      <p className='password'>{errors.confirmpassword && "passwords do not match"}</p>
                     </div>
                   </div>
-                  <p className='password'>{errors.confirmpassword && "passwords do not match"}</p>
-
-
-                  <div class="form-check d-flex justify-content-center mb-5">
-                    <input class="form-check-input me-2" type="checkbox" name='agree' value="" id="form2Example3c"  />
-                    <label class="form-check-label" for="form2Example3">
-                      I agree all statements in <a href="#!">Terms of service</a>
-                    </label>
-                  </div>
+                 
+                  
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                     <button type="submit" class="btn btn-primary btn-lg">Register</button>
