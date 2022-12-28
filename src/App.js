@@ -7,6 +7,7 @@ import Link3 from './link3';
 import Link4 from './link4';
 import Others from './others';
 import Signup from './SignUp';
+import OTP from './OtpPage';
 function App() {
   
   return (
@@ -19,6 +20,7 @@ function App() {
            <Route path= {'link4'} element={<Link4/>}/>
            <Route path= {'others'} element={<Others/>}/>
            <Route path= {'signup'} element={<Signup/>}/>
+           <Route path= {'verify'}  element={<OTP/>}/>
       </Routes>
     
   );

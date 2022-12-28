@@ -4,18 +4,21 @@ import 'bootstrap/dist/js/bootstrap.bundle.min'
 import {useForm} from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup'
-import './SignUp.css'
+import './SignUp.css';
+import {useNavigate} from 'react-router-dom';
+
 import axios from 'axios';
 
 const schema = yup.object().shape(
-    {
-       name: yup.string().required(),
-       email: yup.string().email().required(),
-       password: yup.string().min(8).max(16).required(),
-       confirmpassword: yup.string().oneOf([yup.ref("password"),null]),
-    }
+{
+    name: yup.string().required(),
+    email: yup.string().email().required(),
+    password: yup.string().min(8).max(16).required(),
+    confirmpassword: yup.string().oneOf([yup.ref("password"),null])
+}
 )
 
+const navigate = useNavigate;
 function Cooking(){
   const {register,handleSubmit,formState:{
     errors
@@ -44,7 +47,10 @@ function Cooking(){
                     }).catch((err)=>{
                         console.log(err)
                     })
-                })}>
+                   
+                })
+              
+                } >
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
@@ -88,7 +94,7 @@ function Cooking(){
                   
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="submit" class="btn btn-primary btn-lg">Register</button>
+                    <button type="submit" class="btn btn-primary btn-lg" >Register</button>
                   </div>
 
                 </form>
@@ -96,8 +102,7 @@ function Cooking(){
               </div>
               <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                  class="img-fluid" alt="Sample" />
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"class="img-fluid" alt="Sample" />
 
               </div>
             </div>
