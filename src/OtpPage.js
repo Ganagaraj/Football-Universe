@@ -1,3 +1,4 @@
+//import { Navigate } from 'react-router-dom';
 import './OtpPage.css'
 
 function shift(e){
@@ -5,11 +6,36 @@ if(e.target.value!==''){
     if(e.target.nextElementSibling!=null){
         e.target.nextElementSibling.focus()
     }
+
+    let prevSib=true,nextSib = true;
+    let prevCurr = e.target.previousElementSibling;
+    while(prevCurr!=null){
+         if(prevCurr.value===''){
+            prevSib = false;
+            break;
+         }
+         prevCurr = prevCurr.previousElementSibling;
+    }
+    let nextCurr = e.target.nextElementSibling
+    while(nextCurr!=null){
+        if(nextCurr.value===''){
+            nextSib = false;
+            break
+        }
+        nextCurr = nextCurr.nextElementSibling
+    }
+
+    if(prevSib&&nextSib){
+        //<Navigate to='/' replace = {true}/>
+        console.log("home navigator")
+    }
 }
 else{
     if(e.target.previousElementSibling!=null){
         e.target.previousElementSibling.focus()
     }
+
+    
 }
    
 }
