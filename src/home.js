@@ -150,9 +150,9 @@ function Grid(){
       <>
       <Header data={Data}/>
 <div className='container-fuild justify-content-center' id='grid'>
-<span>Recent Matches</span>
+<span className='title'>Recent Matches</span>
    {
-        Data.slice(0,20).map((dat,count)=>{
+        Data.slice(0,18).map((dat,count)=>{
         return (
         <div className="row justify-content-center" key={count} on>
         <div className="col-auto p-3 ">

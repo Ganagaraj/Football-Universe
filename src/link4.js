@@ -119,7 +119,7 @@ function Grid(){
    if(isDone){
     return (
 <div className='container-fuild justify-content-center' id='grid'>
-<span>{keys[3]} Matches</span>
+<span className='title'>{keys[3]} Matches</span>
 
   <Maker Data={Data}/>
 

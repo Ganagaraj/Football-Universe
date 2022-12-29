@@ -6,7 +6,7 @@ export default function OTP(){
         <div class="card py-5 px-3 otpcard">
             <h5 class="m-0">Email verification</h5><span class="mobile-text">Enter the code we just send on your email <b class="text-danger">abc@gmail.com</b></span>
             <div class="d-flex flex-row mt-5">
-                <input type="text" class="form-control otpfc" autofocus=""/>
+            <input type="text" class="form-control otpfc" autofocus=""/>
             <input type="text" class="form-control otpfc"/>
             <input type="text" class="form-control otpfc"/>
             <input type="text" class="form-control otpfc"/>

@@ -5,9 +5,10 @@ import {useForm} from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup'
 import './SignUp.css';
-import {useNavigate} from 'react-router-dom';
+import {Navigate} from 'react-router-dom';
 
 import axios from 'axios';
+import { useState } from 'react';
 
 const schema = yup.object().shape(
 {
@@ -18,8 +19,10 @@ const schema = yup.object().shape(
 }
 )
 
-const navigate = useNavigate;
+
+
 function Cooking(){
+  const [isComp,setisComp] = useState(false)
   const {register,handleSubmit,formState:{
     errors
   }} = useForm(
@@ -43,6 +46,7 @@ function Cooking(){
                 <form class="mx-1 mx-md-4" onSubmit={handleSubmit((data)=>{
                     console.log(data)
                     axios.post('http://localhost:8000/signup',data).then((res)=>{
+                       setisComp(true)
                         console.log(res)
                     }).catch((err)=>{
                         console.log(err)
@@ -94,9 +98,9 @@ function Cooking(){
                   
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="submit" class="btn btn-primary btn-lg" >Register</button>
+                    <button type="submit" class="btn btn-primary btn-lg">Register</button>
                   </div>
-
+                 
                 </form>
 
               </div>
@@ -111,7 +115,11 @@ function Cooking(){
       </div>
     </div>
   </div>
+  {isComp && (
+    <Navigate to="/verify" replace={true} />
+  )}
 </section>
+ 
 )
 }
 

@@ -2,7 +2,7 @@
     background-color: white;
 }
 
-span {
+.title {
     font-size: 2rem;
     padding-left: 0.51em;
     font-weight: 700;
@@ -63,14 +63,14 @@ body {
     overflow-x: hidden;
 }
 
-@media only screen and (max-width: 992px)  {
-   #login-btn {
-      margin-top: 1rem;
+@media only screen and (max-width: 992px) {
+    #login-btn {
+        margin-top: 1rem;
     }
 }
 
-@media only screen and (min-width: 992px)  {
+@media only screen and (min-width: 992px) {
     #login-btn {
-       margin: 1rem;
-     }
- }
+        margin: 1rem;
+    }
+}

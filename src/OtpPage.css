@@ -19,6 +19,8 @@
 
 .otpfc {
     margin-right: 12px;
+    text-align: center;
+    font-size: larger;
 }
 
 .otpfc:focus {
