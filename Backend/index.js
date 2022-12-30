@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const parser = require('body-parser')
+const { mail } = require('./mail.js')
 
 let app = express()
 app.use(cors())
@@ -12,8 +13,7 @@ app.get('/', (req, res) => {
 
 app.post('/signup', (req, res) => {
     console.log(req.body)
-
-
+    mail(req.body.email)
     res.status(200).send("sucessfully submitted")
 })
 

@@ -1,5 +1,7 @@
-//import { Navigate } from 'react-router-dom';
+import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import './OtpPage.css'
+
 
 function shift(e){
 if(e.target.value!==''){
@@ -26,21 +28,19 @@ if(e.target.value!==''){
     }
 
     if(prevSib&&nextSib){
-        //<Navigate to='/' replace = {true}/>
         console.log("home navigator")
     }
 }
 else{
-    if(e.target.previousElementSibling!=null){
+   /* if(e.target.previousElementSibling!=null){
         e.target.previousElementSibling.focus()
-    }
-
-    
+    }*/  
 }
-   
+     
 }
 
 export default function OTP(){
+    const[isDone,setisDone] = useState(false)
     return(
         <>
         <div class="d-flex justify-content-center align-items-center container" id='otpcon'>
@@ -59,6 +59,7 @@ export default function OTP(){
                 </div>
         </div>
     </div>
+    {isDone && (<Navigate to='/link1' replace = {true}/>)}
     </>
     )
 }
