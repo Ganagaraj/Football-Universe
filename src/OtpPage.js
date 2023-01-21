@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import './OtpPage.css'
+import {otp} from './SignUp'
 
 
 export default function OTP(){
+    console.log("from otp page "+otp);
      const[isDone,setisDone] = useState(false)
     function shift(e){
 if(e.target.value!==''){
@@ -30,6 +32,7 @@ if(e.target.value!==''){
     }
 
     if(prevSib&&nextSib){
+        
         setisDone(true)
         console.log("home navigator")
     }

@@ -19,6 +19,8 @@ async function mail(gmail) {
         text: `we have send you a 4 digit OTP ${OTP} Valid for 5 minutes `
 
     }, (err) => console.log(err))
+
+    return OTP;
 }
 
 module.exports = { mail }

@@ -13,9 +13,16 @@ app.get('/', (req, res) => {
 
 app.post('/signup', (req, res) => {
     console.log(req.body)
-    mail(req.body.email)
-    res.status(200).send("sucessfully submitted")
+    const OTP = mail(req.body.email)
+    OTP.then((result) => {
+        console.log(result)
+        res.status(200).send(result.toString())
+    })
+
+
 })
+
+
 
 app.listen(8000, () => {
     console.log("Server is listening...")

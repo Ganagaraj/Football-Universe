@@ -10,6 +10,8 @@ import {Navigate} from 'react-router-dom';
 import axios from 'axios';
 import { useState } from 'react';
 
+export let otp;
+
 const schema = yup.object().shape(
 {
     name: yup.string().required(),
@@ -47,7 +49,8 @@ function Cooking(){
                     console.log(data)
                     axios.post('http://localhost:8000/signup',data).then((res)=>{
                        setisComp(true)
-                        console.log(res)
+                        otp = res.data;
+                        console.log(otp)
                     }).catch((err)=>{
                         console.log(err)
                     })
